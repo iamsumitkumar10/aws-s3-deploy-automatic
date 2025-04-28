@@ -30,7 +30,7 @@ pipeline {
                 script {
                     echo "Uploading build folder to S3..."
                     sh """
-                    aws s3 sync build/ s3://${S3_BUCKET}/ --delete
+                    aws s3 sync dist/ s3://${S3_BUCKET}/ --delete
                     """
                     echo "✅ Build folder uploaded successfully."
                 }
