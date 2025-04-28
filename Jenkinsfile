@@ -5,8 +5,8 @@ pipeline {
     }
     environment {
         NODE_VERSION = "18"
-        AWS_DEFAULT_REGION = "your-aws-region"    // e.g., ap-south-1
-        S3_BUCKET = "your-s3-bucket-name"          // <-- CHANGE THIS
+        AWS_DEFAULT_REGION = "ap-south-1"    // e.g., ap-south-1
+        S3_BUCKET = "demo-app-one-sks"          // <-- CHANGE THIS
     }
     stages {
 
