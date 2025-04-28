@@ -6,9 +6,19 @@ pipeline {
     environment {
         NODE_VERSION = "18"
         AWS_DEFAULT_REGION = "ap-south-1"    // e.g., ap-south-1
-        S3_BUCKET = "demo-app-one-sks"        // <-- S3 Bucket name
+        S3_BUCKET = "demo-app-one-sks"       // <-- S3 Bucket name
     }
     stages {
+        // New Clean Stage
+        stage('Clean Workspace') {
+            steps {
+                script {
+                    echo "🧹 Cleaning previous build artifacts..."
+                    sh "rm -rf dist node_modules"  // Delete build/output directories
+                    sh "npm cache clean --force"   // Clear npm cache (optional)
+                }
+            }
+        }
 
         stage('Setup NodeJs') {
             steps {
@@ -38,6 +48,7 @@ pipeline {
                 }
             }
         }
-
     }
 }
+
+
