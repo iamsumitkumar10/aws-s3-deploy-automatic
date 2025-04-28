@@ -11,14 +11,14 @@ pipeline {
     stages {
         // New Clean Stage
         stage('Clean Workspace') {
-            steps {
-                script {
-                    echo "🧹 Cleaning previous build artifacts..."
-                    sh "rm -rf dist node_modules"  // Delete build/output directories
-                    sh "npm cache clean --force"   // Clear npm cache (optional)
-                }
-            }
+    steps {
+        script {
+            echo "🧹 Cleaning previous build artifacts..."
+            sh "rm -rf dist"  // Only delete build output
+            sh "npm cache clean --force"
         }
+    }
+}
 
         stage('Setup NodeJs') {
             steps {
