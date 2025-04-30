@@ -11,14 +11,14 @@ pipeline {
     stages {
         // New Clean Stage
         stage('Clean Workspace') {
-    steps {
-        script {
-            echo "🧹 Cleaning previous build artifacts..."
-            sh "rm -rf dist"  // Only delete build output
-            sh "npm cache clean --force"
+            steps {
+                script {
+                    echo "🧹 Cleaning previous build artifacts..."
+                    sh "rm -rf dist"  // Only delete build output
+                    sh "npm cache clean --force"
+                }
+            }
         }
-    }
-}
 
         stage('Setup NodeJs') {
             steps {
@@ -47,6 +47,33 @@ pipeline {
                     echo "✅ Build folder uploaded successfully."
                 }
             }
+        }
+    }
+    post {
+        success {
+            echo '✅ Pipeline completed successfully.'
+            emailext(
+                subject: 'this mail from jenkins demo-app-one build id ${BUILD_ID}',
+                body: '''Build is successfully.
+Build URL is : ${BUILD_URL}
+                ''',
+                from: 'sumitkumar703327@gmail.com',
+                to: 'work.sumit10@gmail.com'
+            )
+        }
+        failure {
+            echo '❌ Pipeline failed. Check the logs for details.'
+            emailext(
+                subject: 'this mail from jenkins demo-app-one build id ${BUILD_ID}',
+                body: '''Build is failed. 
+Build URL is : ${BUILD_URL}
+                ''',
+                from: 'sumitkumar703327@gmail.com',
+                to: 'work.sumit10@gmail.com'
+            )
+        }
+        always {
+            echo '📋 Pipeline execution finished.'
         }
     }
 }
