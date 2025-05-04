@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-        <h2>automatic deploy in aws s3 and send a mail notification to successfully uploaded</h2>
+        <h2>automatic upload and deploy in aws s3 and send a mail notification to successfully deploy</h2>
     </>
   )
 }
