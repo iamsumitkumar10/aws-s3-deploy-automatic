@@ -1,5 +1,14 @@
 services:
-  demo-app-one:
+  my:
     build: .
     ports:
       - "8282:80"
+    volumes:
+     - "my-volume:/var/www/html"
+    networks:
+     - "my-network" 
+
+volumes:
+  my-volume:
+networks:
+  my-network:
