@@ -1,0 +1,5 @@
+services:
+  demo-app-one:
+    build: .
+    ports:
+      - "8282:80"
