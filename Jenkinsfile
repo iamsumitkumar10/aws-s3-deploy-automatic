@@ -22,9 +22,7 @@ pipeline {
         }
         stage('Git Clone'){
             steps{
-                git branch: 'main', 
-                credentialsId: 'ed22fdee-75de-49be-b696-549a31ed6c68', 
-                url: 'https://github.com/iamsumitkumar10/aws-s3-deploy-automatic.git'
+                git branch: 'main', credentialsId: '44843b6c-26e6-4564-bcf0-dc2bda0b9e7f', url: 'https://github.com/iamsumitkumar10/aws-s3-deploy-automatic.git'
             }
         }
 
