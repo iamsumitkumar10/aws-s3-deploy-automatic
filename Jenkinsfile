@@ -6,7 +6,8 @@ pipeline {
     environment {
         NODE_VERSION = "18"
         AWS_DEFAULT_REGION = "ap-south-1"    // e.g., ap-south-1
-        S3_BUCKET = "demo-app-one-sks"       // <-- S3 Bucket name
+        S3_BUCKET = "aws-s3-deploy-automatic"       // <-- S3 Bucket name
+        GIT_URL = "https://github.com/iamsumitkumar10/aws-s3-deploy-automatic.git"
     }
     stages {
         // New Clean Stage
@@ -17,6 +18,13 @@ pipeline {
                     sh "rm -rf dist"  // Only delete build output
                     sh "npm cache clean --force"
                 }
+            }
+        }
+        stage('Git Clone'){
+            steps{
+                git branch: 'main', 
+                credentialsId: 'ed22fdee-75de-49be-b696-549a31ed6c68', 
+                url: '${GIT_URL} '
             }
         }
 
