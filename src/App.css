@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.no-bullets {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.no-bullets li {
+  padding-left: 0;
+  text-indent: 0;
+}
