@@ -63,8 +63,8 @@ pipeline {
                 body: '''Build is successfully.
 Build URL is : ${BUILD_URL}
                 ''',
-                from: 'sumitkumar703327@gmail.com',
-                to: 'work.sumit10@gmail.com'
+                from: 'from@gmail.com',
+                to: 'to@gmail.com'
             )
         }
         failure {
@@ -74,8 +74,8 @@ Build URL is : ${BUILD_URL}
                 body: '''Build is failed. 
 Build URL is : ${BUILD_URL}
                 ''',
-                from: 'sumitkumar703327@gmail.com',
-                to: 'work.sumit10@gmail.com'
+                from: 'from@gmail.com',
+                to: 'to@gmail.com'
             )
         }
         always {
